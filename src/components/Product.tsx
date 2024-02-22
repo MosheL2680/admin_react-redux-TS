@@ -11,24 +11,30 @@ const Product = () => {
     const [newProductDesc, setNewProductDesc] = useState('')
     const [newProductPrice, setNewProductPrice] = useState('')
     const [selectedCategory, setSelectedCategory] = useState('')
-   
+    const [selctedFile, setselctedFile] = useState<File|any >(null)
+
 
 
     useEffect(() => {
         dispatch(fetchProductsAsync())
     }, [products, dispatch])
 
+    
     const handleAddProduct = () => {
         const formData = new FormData();
         formData.append('desc', newProductDesc);
         formData.append('price', newProductPrice);
         formData.append('ctg', selectedCategory);
-        // formData.append('image', selectedFile); // Append the file
+        formData.append('img', selctedFile)
 
         dispatch(addProductsAsync(formData));
         setadd(false);
         dispatch(fetchProductsAsync());
     };
+
+    const handleFileChange = (e: any) => {
+        setselctedFile(e.target.files[0])
+    }
 
     return (
         <>
@@ -57,9 +63,9 @@ const Product = () => {
                         <MenuItem value={5}>Baking Products</MenuItem>
                         <MenuItem value={6}>Snacks</MenuItem>
                     </Select><br />
-                    {/* <ButtonBase>
+                    <ButtonBase>
                         <input type="file" id="file-input" name="ImageStyle" onChange={handleFileChange} />
-                    </ButtonBase> */}
+                    </ButtonBase>
                     <Button onClick={handleAddProduct}>Submit</Button>
                     <Button onClick={() => setadd(false)}>Cancel</Button>
                 </>

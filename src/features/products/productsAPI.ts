@@ -6,7 +6,7 @@ export function fetchProducts() {
   return axios.get(SERVER)
 }
 
-export function    addProduct(prd: IProduct) {
+export function    addProduct(prd: FormData) {
   console.log(prd);
 
   return axios.post(SERVER + '/', prd)

@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useEffect, useState } from 'react'
+import React, {  useEffect, useState } from 'react'
 import { useAppDispatch, useAppSelector } from '../app/hooks'
 import { addProductsAsync, fetchProductsAsync, selectProducts } from '../features/products/productsSlice'
 import ProdDisp from './ProdDisp'
@@ -25,7 +25,7 @@ const Product = () => {
         formData.append('desc', newProductDesc);
         formData.append('price', newProductPrice);
         formData.append('ctg', selectedCategory);
-        formData.append('img', selctedFile)
+        if (selctedFile) formData.append('img', selctedFile)
 
         dispatch(addProductsAsync(formData));
         setadd(false);

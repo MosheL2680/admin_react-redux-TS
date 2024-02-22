@@ -11,6 +11,13 @@ export interface IProduct {
   ctg?: number
 }
 
+export interface FormDataState {
+  desc: string;
+  price: string;
+  ctg: string;
+  img: File | null;
+}
+
 export interface productsState {
   products: IProduct[]
 }

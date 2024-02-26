@@ -63,9 +63,9 @@ const Product = () => {
                         <MenuItem value={5}>Baking Products</MenuItem>
                         <MenuItem value={6}>Snacks</MenuItem>
                     </Select><br />
-                    <ButtonBase>
+                    <ButtonBase >
                         <input type="file" id="file-input" name="ImageStyle" onChange={handleFileChange} />
-                    </ButtonBase>
+                    </ButtonBase><br /><br />
                     <Button onClick={handleAddProduct}>Submit</Button>
                     <Button onClick={() => setadd(false)}>Cancel</Button>
                 </>
